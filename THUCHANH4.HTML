@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Câu 4</title>
+  <style>
+    form {
+      max-width: 600px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      border: 1px solid #2f63ff;
+      border-radius: 10px;
+      font-family: Arial, sans-serif;
+    }
+    form input, form select, form button {
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    form button {
+      background-color: #2f63ff;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <form onsubmit="return validate()">
+    <input type="text" id="hoten" placeholder="Họ và tên" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="tel" id="phone" placeholder="Số điện thoại" required />
+    <input type="text" id="congviec" placeholder="Công việc mong muốn" required />
+    <input type="text" id="luong" placeholder="Mức lương mong muốn" required />
+    <button type="submit">Đăng ký</button>
+  </form>
+
+  <script>
+    function validate(){
+      const hoten = document.getElementById('hoten').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const congviec = document.getElementById('congviec').value.trim();
+      const luong = document.getElementById('luong').value.trim();
+
+      if(!hoten || !email || !phone || !congviec || !luong){
+        alert("Vui lòng điền đầy đủ thông tin!");
+        return false;
+      }
+
+      const phoneRegex = /^[0-9]{10}$/;
+      if(!phoneRegex.test(phone)){
+        alert("Số điện thoại phải gồm 10 số!");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+
+</body>
+</html>

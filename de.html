@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Job Seek</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+    header {
+      text-align: center;
+      color: #2f63ff;
+    }
+    .slogan {
+      font-style: italic;
+      margin-top: 5px;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+    }
+    nav li {
+      margin: 0 15px;
+    }
+    nav a {
+      color: #2f63ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .promo {
+      border: 2px solid #444;
+      background: #333;
+      color: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-style: normal;
+    }
+    .promo:hover {
+      background: #ffe700;
+      border-color: #2f63ff;
+      color: #2f63ff;
+      font-style: italic;
+    }
+    #jobs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    .item {
+      width: 180px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #e0f0ff;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    form {
+      max-width: 600px;
+      margin: 30px auto 50px;
+      padding: 20px;
+      border: 1px solid #2f63ff;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    form input, form select, form button {
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    form button {
+      background-color: #2f63ff;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #244db7;
+    }
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      margin-top: 40px;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Job Seek</h1>
+    <p class="slogan">Nơi bạn bắt đầu chinh phục tiếng Anh</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="cau1.html">Câu 1</a></li>
+      <li><a href="cau2.html">Câu 2</a></li>
+      <li><a href="cau3.html">Câu 3</a></li>
+      <li><a href="cau4.html">Câu 4</a></li>
+    </ul>
+  </nav>
+
+  <div class="promo">
+    Khóa học giảm giá 20% cho 100 học viên đầu tiên!
+  </div>
+
+  <div id="jobs"></div>
+
+  <form onsubmit="return validateForm()">
+    <input type="text" id="hoten" placeholder="Họ và tên" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="tel" id="phone" placeholder="Số điện thoại" required />
+    <input type="text" id="congviec" placeholder="Công việc mong muốn" required />
+    <input type="text" id="luong" placeholder="Mức lương mong muốn" required />
+    <button type="submit">Đăng ký</button>
+  </form>
+
+  <footer>
+    <p>Họ tên sinh viên: [Tên Anh/Chị]</p>
+    <p>Lớp: [Lớp học]</p>
+  </footer>
+
+  <script>
+    const jobs = [
+      { viTri: "Nhân viên bán hàng", tenCongTy: "Công ty A", yeuCau: "Giao tiếp tốt", mucLuong: "7 triệu" },
+      { viTri: "Lập trình viên", tenCongTy: "Công ty B", yeuCau: "Biết JavaScript", mucLuong: "15 triệu" },
+      { viTri: "Thiết kế đồ họa", tenCongTy: "Công ty C", yeuCau: "Sáng tạo", mucLuong: "10 triệu" },
+      { viTri: "Nhân viên marketing", tenCongTy: "Công ty D", yeuCau: "Kỹ năng tốt", mucLuong: "8 triệu" },
+      { viTri: "Kế toán", tenCongTy: "Công ty E", yeuCau: "Cẩn thận", mucLuong: "9 triệu" },
+      { viTri: "Nhân viên hỗ trợ", tenCongTy: "Công ty F", yeuCau: "Giao tiếp tiếng Anh", mucLuong: "7 triệu" }
+    ];
+
+    const container = document.getElementById('jobs');
+
+    jobs.forEach(job => {
+      container.innerHTML += `
+        <div class="item">
+          <h3>${job.viTri}</h3>
+          <p><b>Công ty:</b> ${job.tenCongTy}</p>
+          <p><b>Yêu cầu:</b> ${job.yeuCau}</p>
+          <p><b>Mức lương:</b> ${job.mucLuong}</p>
+        </div>
+      `;
+    });
+
+    function validateForm() {
+      const hoten = document.getElementById('hoten').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const congviec = document.getElementById('congviec').value.trim();
+      const luong = document.getElementById('luong').value.trim();
+
+      if (!hoten || !email || !phone || !congviec || !luong) {
+        alert("Vui lòng điền đầy đủ thông tin!");
+        return false;
+      }
+
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(phone)) {
+        alert("Số điện thoại phải gồm 10 số!");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+
+</body>
+</html>
