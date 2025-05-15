@@ -1,177 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>English-Learning</title>
+<meta charset="UTF-8">
+<title>English Learning - Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
 
-    <style>
-        :root {
-            --yellow: #ffe700; 
-            --greenlight: #00e56b; 
-            --greendark: #00b253; 
-            --bluelight: #2fcbff; 
-            --bluedark: #2f63ff; 
-        }
+:root {
+  --yellow: #ffe700;
+  --green-light: #00e56b;
+  --green-dark: #00b253;
+  --blue-light: #2fcbff;
+  --blue-dark: #2f63ff;
+  --item-size: 220px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+header {
+  background: var(--blue-dark);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+header svg {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+nav {
+  width: 100%;
+  background: var(--blue-light);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  justify-content: center;
+}
+nav a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  color: white;
+}
+.advert {
+  width: 100%;
+  height: 200px;
+  border: 2px solid var(--blue-dark);
+  background: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all .3s ease;
+}
+.advert:hover {
+  background: var(--green-light);
+  border-color: var(--green-dark);
+  font-style: italic;
+}
+.item {
+  width: var(--item-size);
+  height: var(--item-size);
+  background: var(--blue-light);
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.item h3 {
+  margin-bottom: .5rem;
+}
+@media (max-width:414px){
+  nav ul {
+    flex-direction: column;
+  }
+  .item {
+    width: 100%;
+    height: auto;
+  }
+  .container {
+    padding: 10px;
+  }
 
-        * {
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-            padding: 0px;
-            margin: 0px;
-        }
+  input, select, button, label {
+    font-size: 14px;
+  }
+}
+@media (min-width:415px) and (max-width:1024px){
+  .item {
+    flex: 1 1 calc(50% - 1rem);
+  }
+  .container {
+    max-width: 80%;
+  }
+}
+@media (min-width:1025px){
+  .items-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .container {
+    max-width: 600px;
+  }
+}
 
-        .cau1 header {
-            width: 100%;
-            height: 85px;
-            background-color: var(--bluedark);
-            display: flex;
-            align-items: center;
-        }
-
-        .cau1 header .logo {
-            margin: 10px 5px 10px 15px;
-        }
-
-        .cau1 header .tenWeb {
-            margin: 10px;
-            border: 2px solid var(--greendark);
-            padding: 5px;
-            background-color: var(--bluelight);
-        }
-
-        .cau1 .logo svg {
-            height: 65px;
-            weight: 65px; 
-        }
-
-        .cau1 .nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 40px;
-            background-color: var(--bluelight);
-        }
-
-        .cau1 .nav .item {
-            margin: 20px;
-        }
-
-        .cau1 .nav .item a {
-            text-decoration: none;
-        }
-
-        .cau1 .nav .item:hover {
-            background-color: var(--yellow);
-            font-style: italic;
-        }
-
-        .cau2 .box {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            height: 150px;
-            margin: 10px 0px;
-        }
-
-        .cau2 .box .item {
-            background-color: var(--greenlight);
-            border: 2px solid var(--yellow); 
-            width: 18%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .cau2 .advert {
-            background-color: var(--bluelight);
-            width: 100%;
-            height: 200px;
-            margin: 10px 0px; 
-            border: 2px solid var(--greenlight);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+.slogan {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-top: .5rem;
+  color: var(--blue-dark);
+}
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+</style>
 </head>
 <body>
-    <div class="cau1">
-        <header>
-            <div class="logo">
-                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="English Learning Logo">
-                    <circle cx="32" cy="32" r="32" fill="#2fcbff"/>
-                    <text x="32" y="38" font-size="28" text-anchor="middle" fill="#2f63ff" font-family="Arial" font-weight="bold">EL</text>
-                </svg>
-            </div>
-            <div class="tenWeb">
-                Hoc Tieng Anh cung DSTE !
-            </div>
-        </header>
+<header>
+  
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="English Learning Logo">
+  <circle cx="32" cy="32" r="32" fill="#2fcbff"/>
+  <text x="32" y="38" font-size="28" text-anchor="middle" fill="#2f63ff" font-family="Arial" font-weight="bold">EL</text>
+</svg>
 
-        <div class="nav">
-            <div class="item"><a href="https://www.youtube.com/watch?v=PsVEpKthrcg&list=RDPsVEpKthrcg&start_radio=1">Trang chu</a></div>
-            <div class="item">Khoa Hoc</div>
-            <div class="item">Dien Dan</div>
-            <div class="item">Lien He</div>
-        </div>
+  <div>
+    <h1>English Learning</h1>
+    <p class="slogan">Unlock your future with English today!</p>
+  </div>
+</header>
+<nav>
+  <ul>
+    <li><a href="cau1.html">Giới thiệu</a></li>
+    <li><a href="cau2.html">Thiết kế CSS</a></li>
+    <li><a href="cau3.html">Khóa học</a></li>
+    <li><a href="cau4.html">Đăng ký</a></li>
+  </ul>
+</nav>
+<section class="advert">
+  <p>Đăng ký ngay hôm nay để nhận <strong>voucher giảm 20%</strong> học phí!</p>
+</section>
 
-        <section class="baiviet">
-            <h2>Khoá học Ielts dành cho người mới bắt đầu:</h2>
-            <p>Như chúng ta đã biết, tiếng anh ngày nay rất hữu dụng và cần thiết cho công việc và học tập của mỗi người, vậy nên trong bài viết này chúng tôi sẽ giới thiệu cho những người mới bắt đầu học tiếng anh khoá học Ielts dành cho người mới bắt đầu - <strong>Ielts 1.0-3.0</strong></p>
-            <img src="https://ieltsthetutors.edu.vn/wp-content/uploads/2025/04/lo-trinh-hoc-ielts-tu-0-den-3.0-thumbnail.webp" alt="Khoa hoc Ielts 1.0-3.0">
-            <p>Khoa hoc Ielts 1.0-3.0 sẽ dạy kỹ năng nghe nói cơ bản, từ vựng cơ bản, v...</p>
-        </section>
-    </div>
+<main>
+  <h2>Danh sách Khóa học</h2>
+  <div class="items-container" id="courses"></div>
 
-    <div class="cau2">
-        <div class="box">
-            <div class="item">item1</div>
-            <div class="item">item2</div>
-            <div class="item">item3</div>
-            <div class="item">item4</div>
-        </div>
-        <div class="advert">advert</div>
-    </div>
+  <h2 style="margin-top:3rem">Đăng ký ngay</h2>
+  <iframe src="cau4.html" style="width:100%; border:none; height:450px"></iframe>
+</main>
 
-    <div class="cau3">
-        
-    </div>
-
-    <script>
-        courses = [
-            {
-                "ten khoa hoc": "Khoa hoc Ielts 1.0-3.0", 
-                "mo ta": "danh cho nguoi moi bat dau", 
-                "hoc phi": "4000000 VND", 
-                "Thoi gian khai giang": "12/03/2025"
-            },
-
-            {
-                "ten khoa hoc": "Khoa hoc Ielts 3.0-5.0", 
-                "mo ta": "Danh cho nguoi co nen tang tieng anh", 
-                "hoc phi": "5000000 VND", 
-                "Thoi gian khai giang": "15/3/2025"
-            },
-
-            {
-                "ten khoa hoc": "Khoa hoc Ielts 5.0-6.5", 
-                "mo ta": "Danh cho nguoi co nen tang tieng anh tot", 
-                "hoc phi": "6000000 VND", 
-                "Thoi gian khai giang": "17/3/2025"
-            },
-
-            {
-                "ten khoa hoc": "Khoa hoc Ielts 6.5-7.5", 
-                "mo ta": "Danh cho nguoi co nen tang tieng anh tot", 
-                "hoc phi": "7500000 VND", 
-                "Thoi gian khai giang": "20/03/2025"
-            }
-    ]
-
-
-
-    </script>
-
+<script>
+const courses = [
+  {
+    "name": "Basic English",
+    "description": "Xây dựng nền tảng từ vựng và ngữ pháp cơ bản.",
+    "fee": "3,000,000 VND",
+    "start": "2025-06-01"
+  },
+  {
+    "name": "Intermediate Conversation",
+    "description": "Nâng cao kỹ năng giao tiếp, phản xạ nhanh.",
+    "fee": "4,500,000 VND",
+    "start": "2025-06-15"
+  },
+  {
+    "name": "IELTS Intensive",
+    "description": "Chuẩn bị IELTS trong 3 tháng với giáo viên bản ngữ.",
+    "fee": "8,000,000 VND",
+    "start": "2025-07-01"
+  },
+  {
+    "name": "Business English",
+    "description": "Kỹ năng tiếng Anh thương mại chuyên sâu.",
+    "fee": "6,500,000 VND",
+    "start": "2025-07-10"
+  }
+];
+const container = document.getElementById('courses');
+let i = 0;
+while (i < courses.length){
+  const c = courses[i];
+  const div = document.createElement('div');
+  div.className = 'item';
+  div.innerHTML = `<h3>${c.name}</h3><p>${c.description}</p><p><strong>Học phí:</strong> ${c.fee}</p><p><strong>Khai giảng:</strong> ${c.start}</p>`;
+  container.appendChild(div);
+  i++;
+}
+</script>
 </body>
 </html>
